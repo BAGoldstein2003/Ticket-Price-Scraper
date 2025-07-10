@@ -12,22 +12,22 @@ def get_leagues(driver: uc.Chrome):
     sportsNavButton.click()
     subCategories = driver.find_elements('css selector', '.components-Headers-HeaderDropdown-components-CategoriesDropdown-CategoriesDropdown-module__subcategory')
     subCategories = [cat for cat in subCategories if cat.text.isalnum()]
-    leagues = [{'league': cat.text} for cat in subCategories]
+    leagues = {cat.text: {} for cat in subCategories}
 
     #loop through subcategories, saving each category and its teams to a list of dictionaries
     for idx, cat in enumerate(subCategories):
-        ActionChains(driver).move_to_element(cat).perform()
+        hover = ActionChains(driver).move_to_element(cat)
+        hover.perform()
         currTeams = driver.find_elements('css selector', '.components-GTFullWidthList-GTFullWidthList-module__link')
-        leagues[idx]['teams'] = [currTeam.text for currTeam in currTeams if currTeam.text != '']
-        time.sleep(0.5)
+        leagues[cat.text] = {f'{currTeam.text}': f'{currTeam.get_attribute("href")}' for currTeam in currTeams if currTeam.text != ''}
 
-    #pretty-print results and return Sub-Categories
-    pprint.pprint(leagues)
-    return subCategories
+    return leagues
     
 
 if __name__ == '__main__':
-    driver = uc.Chrome(headless=True)
-    subCategories = get_leagues(driver)
+
+    driver = uc.Chrome(headless=False)
+    leagues = get_leagues(driver)
+    pprint.pprint(leagues)
         
         
