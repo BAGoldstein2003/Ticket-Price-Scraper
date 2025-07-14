@@ -1,0 +1,74 @@
+:root {
+  /* 🌈 Spinner colors — edit here to update the animation palette */
+  --color-red: red;
+  --color-orange: orange;
+  --color-yellow: yellow;
+  --color-green: green;
+  --color-blue: blue;
+  --color-purple: purple;
+  --color-violet: violet;
+
+  /* 🔳 Loader background */
+  --loader-bg: #000;
+}
+.loading-screen {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
+
+.rainbow-spinner {
+  width: 80px;
+  height: 80px;
+  border: 8px solid transparent;
+  border-top-color: var(--color-red);
+  border-right-color: var(--color-orange);
+  border-bottom-color: var(--color-green);
+  border-left-color: var(--color-blue);
+  border-radius: 50%;
+  animation: rainbowSpin 1s linear infinite;
+}
+
+@keyframes rainbowSpin {
+  0% {
+    transform: rotate(0deg);
+    border-top-color: var(--color-red);
+    border-right-color: var(--color-orange);
+    border-bottom-color: var(--color-green);
+    border-left-color: var(--color-blue);
+  }
+  25% {
+    border-top-color: var(--color-orange);
+    border-right-color: var(--color-yellow);
+    border-bottom-color: var(--color-blue);
+    border-left-color: var(--color-purple);
+  }
+  50% {
+    border-top-color: var(--color-yellow);
+    border-right-color: var(--color-green);
+    border-bottom-color: var(--color-red);
+    border-left-color: var(--color-orange);
+  }
+  75% {
+    border-top-color: var(--color-green);
+    border-right-color: var(--color-blue);
+    border-bottom-color: var(--color-violet);
+    border-left-color: var(--color-red);
+  }
+  100% {
+    transform: rotate(360deg);
+    border-top-color: var(--color-red);
+    border-right-color: var(--color-orange);
+    border-bottom-color: var(--color-green);
+    border-left-color: var(--color-blue);
+  }
+}
