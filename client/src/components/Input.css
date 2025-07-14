@@ -1,0 +1,63 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+    padding: 3rem;
+    gap: 1rem;
+}
+
+.url {
+    text-align: center;
+    background-color: rgba(10, 10, 10, 0.5);
+    border-radius: 1rem;
+    width: 15%;
+    transition: all 0.3s ease-out;
+}
+
+input:focus {
+    width: 50%;
+}
+
+
+.url::placeholder {
+    color: white;
+}
+
+.threshold {
+    text-align: center;
+    background-color: rgba(10, 10, 10, 0.5);
+    border-radius: 1rem;
+    width: 15%;
+    transition: all 0.3s ease-out;
+}
+
+.submit {
+    height: 6rem;
+    width: 6rem;
+    background: transparent;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    margin-left: 0;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.3s ease-out;
+    font-size: 1.5rem;
+}
+
+.submit:hover {
+    scale: 1.2;
+    cursor: pointer;
+    width: 10rem;
+    border-radius: 1rem;
+    transform-origin: top;
+}
+
+.submit:active {
+    scale: 0.8;
+    cursor: pointer;
+}
