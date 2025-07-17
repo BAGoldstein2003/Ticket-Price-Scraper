@@ -1,4 +1,4 @@
-# Ticket-Price Scraper
+# Ticket-Price Scraper 🎫
 ## How To Run
 1. Clone this Repository
 2. Extract the folder to your desired location
